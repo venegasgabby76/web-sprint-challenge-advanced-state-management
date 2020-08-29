@@ -10,13 +10,13 @@ const SmurfForm = props => {
         height: "",
     })
 
-    const handleSmurfs = e => {
+    const handleSmurfs = (e) => {
         setNewSmurfs({
             ...addNewSmurfs,
             [e.target.name]: e.target.value
         })
 
-        const submitSmurfs = e => {
+        const submitSmurfs = (e) => {
             e.preventDefault();
             props.addSmurfs(addNewSmurfs)
         }
