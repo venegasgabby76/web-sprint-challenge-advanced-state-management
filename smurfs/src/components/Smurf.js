@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { grabSmurfs } from "../actions/actions";
 
 
-const Smurf = props => {
+const Smurf = (props) => {
 
     useEffect(() => {
         props.grabSmurfs();

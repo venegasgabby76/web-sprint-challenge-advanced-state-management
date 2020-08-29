@@ -10,26 +10,26 @@ const SmurfForm = props => {
         height: "",
     })
 
-    const handleSmurfs = (e) => {
+    const handleChanges = (e) => {
         setNewSmurfs({
             ...addNewSmurfs,
             [e.target.name]: e.target.value
         })
 
-        const submitSmurfs = (e) => {
+        const handleSubmit = (e) => {
             e.preventDefault();
             props.addSmurfs(addNewSmurfs)
         }
 
 
         return (
-            <form onSubmit={submitSmurfs}>
+            <form onSubmit={handleSubmit}>
                 <label>Name: </label>
                 <input
                     type="text"
                     name="name"
                     value={addNewSmurfs.name}
-                    onChange={handleSmurfs}
+                    onChange={handleChanges}
                 />
                 <br />
 
@@ -38,7 +38,7 @@ const SmurfForm = props => {
                     type="text"
                     name="age"
                     value={addNewSmurfs.age}
-                    onChange={handleSmurfs}
+                    onChange={handleChanges}
                 />
                 <br />
 
@@ -47,7 +47,7 @@ const SmurfForm = props => {
                     type="text"
                     name="height"
                     value={addNewSmurfs.height}
-                    onChange={handleSmurfs}
+                    onChange={handleChanges}
                 />
                 <br />
                 <button>LETS ADD YOUR SMURFS</button>
