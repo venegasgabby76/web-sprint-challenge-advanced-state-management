@@ -4,6 +4,7 @@ import { addSmurfs } from "../actions/actions"
 
 
 const SmurfForm = props => {
+
     const [addNewSmurfs, setNewSmurfs] = useState({
         name: "",
         age: "",
@@ -14,15 +15,18 @@ const SmurfForm = props => {
         setNewSmurfs({
             ...addNewSmurfs,
             [e.target.name]: e.target.value
-        })
-
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            props.addSmurfs(addNewSmurfs)
-        }
+        });
+    }
 
 
-        return (
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.addSmurfs(addNewSmurfs)
+    }
+
+
+    return (
+        <div>
             <form onSubmit={handleSubmit}>
                 <label>Name: </label>
                 <input
@@ -52,9 +56,8 @@ const SmurfForm = props => {
                 <br />
                 <button>LETS ADD YOUR SMURFS</button>
             </form>
-        )
-
-    }
+        </div>
+    )
 }
 
 const mapStateToProps = state => {
@@ -66,3 +69,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {addSmurfs})(SmurfForm);
+
+
+
