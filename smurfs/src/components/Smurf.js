@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { grabSmurfs } from "../actions/actions";
 
 
- const Smurf = props => {
+const Smurf = props => {
 
     useEffect(() => {
         props.grabSmurfs();
@@ -11,29 +11,29 @@ import { grabSmurfs } from "../actions/actions";
 
     return (
         <div>
-            
-            <div className='smurfs'>
-                    {props.smurfs.map( smurf => (
-                        <div  className='smurf'key={smurf.id}>
-                            <p>Name : {smurf.name}</p>
-                            <p>Age: {smurf.age}</p>  
-                            <p>Height: {smurf.height}</p>  
-                            </div>
-                    ))}
 
-                </div>
-         
+            <div className='smurfs'>
+                {props.smurfs.map(smurf => (
+                    <div className='smurf' key={smurf.id}>
+                        <p>Name : {smurf.name}</p>
+                        <p>Age: {smurf.age}</p>
+                        <p>Height: {smurf.height}</p>
+                    </div>
+                ))}
+
+            </div>
+
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        isLoading: state.isLoading, 
-        smurfs: state.smurfs, 
+        isLoading: state.isLoading,
+        smurfs: state.smurfs,
         error: state.error
     }
 }
 
 
-export default connect(mapStateToProps, {grabSmurfs})(Smurf);
+export default connect(mapStateToProps, { grabSmurfs })(Smurf);
